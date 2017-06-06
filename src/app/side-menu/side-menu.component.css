@@ -1,0 +1,13 @@
+nav.holder {
+    position: absolute;
+    left: 0px;
+}
+.menu > li {
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    list-style: none;
+}

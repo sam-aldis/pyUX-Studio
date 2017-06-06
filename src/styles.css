@@ -1,0 +1,56 @@
+body {
+  background-color: #2f2f2f;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px; }
+
+.sidebar {
+  display: inline-block;
+  background-color: #4f4f4f;
+  height: 900px;
+  width: 50px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  color: antiquewhite;
+  box-shadow: 1px 0px 3px 1px rgba(0, 0, 0, 0.5); }
+
+.button {
+  cursor: pointer;
+  user-select: none; }
+
+.main-area {
+  width: auto;
+  display: inline-block;
+  overflow: scroll; }
+
+.instructions {
+  color: rgba(255, 255, 255, 0.5); }
+
+input[type=text] {
+  outline: none;
+  background: none;
+  border: none;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: 0.3s; }
+
+input[type=text]:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9); }
+
+.settings-area {
+  padding: 5px;
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  width: 150px;
+  height: 900px;
+  background-color: #4f4f4f;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  color: antiquewhite;
+  box-shadow: -1px 0px 3px 1px rgba(0, 0, 0, 0.5); }
+
+body {
+  margin: 0px; }
+
+/*# sourceMappingURL=styles.css.map */
