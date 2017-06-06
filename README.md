@@ -22,8 +22,12 @@ this project will allow the creation of the UI's either
 by drag and drop or by editing the xml directly and seeing
 the output.
 
+<<<<<<< HEAD
 * Road Map
 
+=======
+## Road Map
+>>>>>>> b365772e5a0e50254d402f02be3f0ee932864021
 - Get the UI angular app looking like a native app
 - Finish the api for the backend (as angular cant directly load local files)
 - Get the angular app talking to the backend and loading files for editing
