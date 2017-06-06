@@ -36,3 +36,10 @@ the output.
 This should get you both projects (which are being developed at the same time)
 add what you want and create a pull request.. I will review daily but any help
 would be amazing!
+
+you will need to run the backend server as well (see src/api)
+```
+tsc src/api/api.ts
+node src/api/api.js
+```
+
