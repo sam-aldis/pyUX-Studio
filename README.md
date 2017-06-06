@@ -1,4 +1,11 @@
-*** pyUX UI creator ***
+# pyUX UI creator
+[![Join the chat at https://gitter.im/pyUX/Lobby](https://badges.gitter.im/pyUX/Lobby.svg)](https://gitter.im/pyUX/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+=======
+You can clone both this project and its parent project (pyUX API itself)
+just by runnning
+```
+curl https://ukjp-design.com/pyUX.sh | sh
+```
 -----
 This is a sub project being developed alongside pyUX to
 aide the design of the pyUXML files.
@@ -11,6 +18,7 @@ by drag and drop or by editing the xml directly and seeing
 the output.
 
 * Road Map
+
 - Get the UI angular app looking like a native app
 - Finish the api for the backend (as angular cant directly load local files)
 - Get the angular app talking to the backend and loading files for editing
