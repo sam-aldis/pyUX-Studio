@@ -13,7 +13,7 @@ npm i -g npm
 ```
 -----
 This is a sub project being developed alongside pyUX to
-aide the design of the pyUXML files.
+aid the design of the pyUXML files.
 ----
 This is a sub-project being developed
 alongside https://github.com/sam-aldis/pyUX which will
