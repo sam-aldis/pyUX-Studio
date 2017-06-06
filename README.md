@@ -6,6 +6,11 @@ just by runnning
 ```
 curl https://ukjp-design.com/pyUX.sh | sh
 ```
+(Feel free to look at the source for this if your a bit worried about running unknown scripts)
+also make sure you have the latest version of npm installed first with:
+```
+npm i -g npm
+```
 -----
 This is a sub project being developed alongside pyUX to
 aide the design of the pyUXML files.
