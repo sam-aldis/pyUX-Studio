@@ -24,13 +24,13 @@ export class TopInputComponent implements OnInit {
           current : _STATE_NEW,
           data : data
         };
+        this.state.createNewProject();
     }
     if (event.keyCode === _exit) {
       this.state.topBox = false;
       event.target.value = '';
       this.state.state = {
-        current : _STATE_INIT,
-        data : null
+        current : _STATE_INIT
       };
     }
   }

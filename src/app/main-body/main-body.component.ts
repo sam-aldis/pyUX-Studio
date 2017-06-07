@@ -13,6 +13,7 @@ export class MainBodyComponent implements OnInit {
   state_init: number;
   state_load: number;
   state_new: number;
+  error_detials: string = '';
   constructor(private currentState: StateService) {
     this.state_error = _STATE_ERROR;
     this.state_init = _STATE_INIT;
@@ -23,6 +24,9 @@ export class MainBodyComponent implements OnInit {
     currentState.stateChange.subscribe((data) => {
       this.state = this.currentState.currentState;
       this.current = this.state.current;
+      if (this.current === _STATE_ERROR) {
+        this.error_detials = currentState.error_details.statusText;
+      }
     });
   }
   ngOnInit() {}

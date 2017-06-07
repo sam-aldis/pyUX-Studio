@@ -7,4 +7,16 @@
     margin-left: 51px;
     padding: calc(5px + 0.5vmin);
     margin-right: 151px;
+    color: white;
+}
+.error {
+    text-align: center;
+    color: red;
+}
+.error-subtext {
+    text-align: center;
+    color: #ec2424;
+}
+.error-subtext > a {
+    color: #ec2424;
 }

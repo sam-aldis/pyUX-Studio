@@ -2,4 +2,21 @@
   <div *ngIf="current==state_init">
   init
   </div>
+  <div *ngIf="current==state_load">
+    loading
+  </div>
+  <div *ngIf="current==state_new">
+    new
+  </div>
+  <div *ngIf="current==state_error">
+    <h1 class="error">There was an error</h1>
+    <h4 class="error-subtext">We don't know what happened but there seems there was an error,
+      please open an issue on our <a href="htpps://github.com/sam-aldis/pyUXDesigner">GitHub Page</a>
+      and let us know what lead to this error</h4>
+      <h4 style="text-align: center">Sorry For the inconvenience!</h4>
+      <div *ngIf="error_details">
+          <h4><u>Error Details</u></h4>
+          {{error_details}}
+      </div>
+  </div>
 </div>

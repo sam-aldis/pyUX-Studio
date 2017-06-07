@@ -4,6 +4,8 @@ import { CreateNewProject, LoadProject } from './api.functions';
 
 const apiKey = '3af4g30saf4jqfjpa49i21fkjkbkaod';
 const error = '0x00';
+// This needs to be changed in production but allows accessOrigin header for angular in dev mode at the moment
+const accessOrigin = 'http://localhost:4200';
 
 export const APIS = [
     {
@@ -52,6 +54,7 @@ any help you can provide would be AWESOME :)\n\
             this.app.get(api.path, (req, res) => {
                 if (req.query.key !== undefined && req.query.key === apiKey) {
                     const data = api.data(req.query);
+                    res.header('Access-Control-Allow-Origin', accessOrigin);
                     res.write(data);
                     res.end();
                 } else {

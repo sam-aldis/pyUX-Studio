@@ -4,6 +4,8 @@ var express = require("express");
 var api_functions_1 = require("./api.functions");
 var apiKey = '3af4g30saf4jqfjpa49i21fkjkbkaod';
 var error = '0x00';
+// This needs to be changed in production but allows accessOrigin header for angular in dev mode at the moment
+var accessOrigin = 'http://localhost:4200';
 exports.APIS = [
     {
         'path': '/api/new',
@@ -52,6 +54,7 @@ any help you can provide would be AWESOME :)\n\
             _this.app.get(api.path, function (req, res) {
                 if (req.query.key !== undefined && req.query.key === apiKey) {
                     var data = api.data(req.query);
+                    res.header('Access-Control-Allow-Origin', accessOrigin);
                     res.write(data);
                     res.end();
                 }

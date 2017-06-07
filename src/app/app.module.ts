@@ -24,7 +24,7 @@ import { TopInputComponent } from './top-input/top-input.component';
     FormsModule,
     HttpModule,
   ],
-  providers: [StateService, ApiService],
+  providers: [StateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

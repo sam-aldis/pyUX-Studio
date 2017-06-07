@@ -1,3 +1,4 @@
+import { Http, Response } from '@angular/http';
 import { ApiService } from './api.service';
 import { Injectable, EventEmitter } from '@angular/core';
 
@@ -20,8 +21,9 @@ export class StateService {
   currentState: State;
   displayTopBox: boolean = false;
   topBoxTxt: string = '';
+  public error_details: Response;
   public stateChange: EventEmitter<any> = new EventEmitter<any>();
-  constructor() {
+  constructor(private http: Http) {
     this.currentState = {current : _STATE_INIT, data : null };
   }
   emitChangeEvent() {
@@ -46,8 +48,8 @@ export class StateService {
   set topBoxText(txt: string) {
     this.topBoxTxt = txt;
   }
-  createNewProject() {
-    let api: ApiService;
+  public createNewProject() {
+    let api: ApiService = new ApiService(this, this.http);
     api.addProject(this.state.data.project_name);
   }
 }
