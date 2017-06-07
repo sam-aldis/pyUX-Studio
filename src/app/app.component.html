@@ -1,4 +1,4 @@
-<app-side-menu style="display:inline-block;"> </app-side-menu>
+<app-side-menu (showBox)="console.log('show box')" style="display:inline-block;"> </app-side-menu>
 <app-main-body style="display:inline-block;"> </app-main-body>
 <app-top-input [display]="state.topBox" [title]='state.topBoxText'> </app-top-input>
 <app-settings-area style="display:inline-block;"> </app-settings-area>

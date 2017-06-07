@@ -17,7 +17,7 @@ import { TopInputComponent } from './top-input/top-input.component';
     SideMenuComponent,
     SettingsAreaComponent,
     MainBodyComponent,
-    TopInputComponent
+    TopInputComponent,
   ],
   imports: [
     BrowserModule,

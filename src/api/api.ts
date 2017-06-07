@@ -3,6 +3,7 @@ import * as bodyParser from 'body-parser';
 import { CreateNewProject, LoadProject } from './api.functions';
 
 const apiKey = '3af4g30saf4jqfjpa49i21fkjkbkaod';
+const error = '0x00';
 
 export const APIS = [
     {
@@ -12,7 +13,7 @@ export const APIS = [
                 new CreateNewProject(req.project_name).create();
                 return 'created project';
             } else {
-                return 'Error Creating Project';
+                return error;
             }
         }
     },
@@ -22,6 +23,8 @@ export const APIS = [
             if (req.project_name !== undefined) {
                 const rdata = new LoadProject(req.project_name).content();
                 return rdata.toString();
+            } else {
+                return error;
             }
         }
     }

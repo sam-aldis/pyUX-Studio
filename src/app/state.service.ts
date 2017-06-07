@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { ApiService } from './api.service';
+import { Injectable, EventEmitter } from '@angular/core';
 
 export interface ProjectData {
   project_name?: string;
@@ -6,19 +7,19 @@ export interface ProjectData {
 }
 export interface State {
   current: number;
-  data: ProjectData | null;
+  data?: ProjectData | null;
 }
 
-export const _XML_HEADER: string[] = new Array('<?xml pyUX />');
 export const _STATE_INIT = 100;
 export const _STATE_NEW = 200;
 export const _STATE_LOAD = 300;
+export const _STATE_ERROR = 400;
 
 @Injectable()
 export class StateService {
   currentState: State;
   displayTopBox: boolean = false;
-  topBoxTxt: string = "";
+  topBoxTxt: string = '';
   constructor() {
     this.currentState = {current : _STATE_INIT, data : null };
   }
@@ -31,7 +32,7 @@ export class StateService {
   get topBox() {
       return this.displayTopBox;
   }
-  set topBox(disp : boolean) {
+  set topBox(disp: boolean) {
     this.displayTopBox = disp;
   }
   get topBoxText() {
@@ -41,7 +42,7 @@ export class StateService {
     this.topBoxTxt = txt;
   }
   createNewProject() {
-    
-    // const file: File = new File(_XML_HEADER, fileName);
+    let api: ApiService;
+    api.addProject(this.state.data.project_name);
   }
 }

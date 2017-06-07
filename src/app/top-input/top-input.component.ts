@@ -1,13 +1,14 @@
 import { _STATE_INIT, _STATE_NEW } from './../state.service';
 import { StateService } from '../state.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 const _enter = 13;
-const _exit = 27
+const _exit = 27;
 @Component({
   selector: 'app-top-input',
   templateUrl: './top-input.component.html',
   styleUrls: ['./top-input.component.css']
 })
+
 export class TopInputComponent implements OnInit {
   @Input() display: boolean;
   @Input() title: string;
@@ -33,9 +34,5 @@ export class TopInputComponent implements OnInit {
       };
     }
   }
-
-  ngOnInit() {
-    
-  }
-
+  ngOnInit() {  }
 }

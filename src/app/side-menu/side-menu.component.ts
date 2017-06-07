@@ -1,10 +1,11 @@
 import { State, StateService, _STATE_NEW, _STATE_LOAD } from './../state.service';
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.css']
 })
+
 export class SideMenuComponent implements OnInit {
   constructor(private currentState: StateService) { }
   createNew() {
@@ -26,6 +27,9 @@ export class SideMenuComponent implements OnInit {
     this.currentState.topBox = true;
     // TODO: This will eventually need to be replaced with a proper open dialogue
     this.currentState.topBoxText = 'Please enter the project name to open';
+  }
+  openSettings() {
+    // TODO: For updating local settings
   }
   ngOnInit() {
   }

@@ -3,6 +3,7 @@ exports.__esModule = true;
 var express = require("express");
 var api_functions_1 = require("./api.functions");
 var apiKey = '3af4g30saf4jqfjpa49i21fkjkbkaod';
+var error = '0x00';
 exports.APIS = [
     {
         'path': '/api/new',
@@ -12,7 +13,7 @@ exports.APIS = [
                 return 'created project';
             }
             else {
-                return 'Error Creating Project';
+                return error;
             }
         }
     },
@@ -22,6 +23,9 @@ exports.APIS = [
             if (req.project_name !== undefined) {
                 var rdata = new api_functions_1.LoadProject(req.project_name).content();
                 return rdata.toString();
+            }
+            else {
+                return error;
             }
         }
     }

@@ -1,5 +1,5 @@
-import { StateService, State } from './../state.service';
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { StateService, State, _STATE_ERROR, _STATE_INIT, _STATE_LOAD, _STATE_NEW} from './../state.service';
+import { Component, OnInit, Input, Injectable, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-main-body',
@@ -8,9 +8,19 @@ import { Component, OnInit, Input, Injectable } from '@angular/core';
 })
 export class MainBodyComponent implements OnInit {
   state: State;
-  constructor(private currentState: StateService) {
-    this.state = currentState.currentState;
+  current: number;
+  state_error: number;
+  state_init: number;
+  state_load: number;
+  state_new: number;
+  constructor(private currentState: StateService, private renderer: Renderer2) {
+    this.state_error = _STATE_ERROR;
+    this.state_init = _STATE_INIT;
+    this.state_load = _STATE_LOAD;
+    this.state_new = _STATE_NEW;
+    this.state = this.currentState.currentState;
+    this.current = this.state.current;
+    renderer.createComment('test');
   }
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

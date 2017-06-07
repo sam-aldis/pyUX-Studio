@@ -5,5 +5,6 @@
     left: 0px;
     right: 0px;
     margin-left: 51px;
+    padding: calc(5px + 0.5vmin);
     margin-right: 151px;
 }

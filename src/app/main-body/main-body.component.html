@@ -1,3 +1,5 @@
 <div class="main-body">
-  {{currentState.state.current == 100 ? "INIT" : "CREATING"}}
+  <div *ngIf="current==state_init">
+  init
+  </div>
 </div>

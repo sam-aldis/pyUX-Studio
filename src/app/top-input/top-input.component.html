@@ -1,4 +1,5 @@
 <div class="top-input" [ngClass]='{offscreen : !display}'>
 <small>{{title}}</small>
-<br /><input #uinput (keydown)="handleKeyDown($event)"/>
+<br /><input #topInput (keydown)="handleKeyDown($event)"/>
+{{topInput.focus()}}
 </div>
