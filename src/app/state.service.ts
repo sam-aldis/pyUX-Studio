@@ -20,14 +20,19 @@ export class StateService {
   currentState: State;
   displayTopBox: boolean = false;
   topBoxTxt: string = '';
+  public stateChange: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     this.currentState = {current : _STATE_INIT, data : null };
+  }
+  emitChangeEvent() {
+    this.stateChange.emit('stateChange');
   }
   get state() {
     return this.currentState;
   }
   set state(newState: State) {
     this.currentState = newState;
+    this.emitChangeEvent();
   }
   get topBox() {
       return this.displayTopBox;
