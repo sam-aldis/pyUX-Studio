@@ -2,13 +2,14 @@
   <div *ngIf="current==state_init">
   init
   </div>
-  <div *ngIf="current==state_load">
-    loading
+  <div *ngIf="current==state_load" style="text-align:center; padding-top:20%;">
+    <py-ux-loading></py-ux-loading>
   </div>
   <div *ngIf="current==state_new">
-    new
+    <py-ux-loading></py-ux-loading>
   </div>
   <div *ngIf="current==state_error">
+    <h1 class="error"><i class="material-icons">warning</i></h1>
     <h1 class="error">There was an error</h1>
     <h4 class="error-subtext">We don't know what happened but there seems there was an error,
       please open an issue on our <a href="htpps://github.com/sam-aldis/pyUXDesigner">GitHub Page</a>
@@ -18,5 +19,8 @@
           <h4><u>Error Details</u></h4>
           {{error_details}}
       </div>
+  </div>
+  <div *ngIf="current==state_creator">
+    <py-ux-creator></py-ux-creator>
   </div>
 </div>

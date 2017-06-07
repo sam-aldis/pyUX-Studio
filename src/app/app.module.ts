@@ -10,6 +10,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { SettingsAreaComponent } from './settings-area/settings-area.component';
 import { MainBodyComponent } from './main-body/main-body.component';
 import { TopInputComponent } from './top-input/top-input.component';
+import { PyUXLoadingComponent } from './py-ux-loading/py-ux-loading.component';
+import { CreatorComponent } from './creator/creator.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { TopInputComponent } from './top-input/top-input.component';
     SettingsAreaComponent,
     MainBodyComponent,
     TopInputComponent,
+    PyUXLoadingComponent,
+    CreatorComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 export interface ProjectData {
   project_name?: string;
   projectFH?: File;
+  project_data?: any;
 }
 export interface State {
   current: number;
@@ -15,6 +16,7 @@ export const _STATE_INIT = 100;
 export const _STATE_NEW = 200;
 export const _STATE_LOAD = 300;
 export const _STATE_ERROR = 400;
+export const _STATE_CREATOR = 500;
 
 @Injectable()
 export class StateService {
@@ -25,6 +27,9 @@ export class StateService {
   public stateChange: EventEmitter<any> = new EventEmitter<any>();
   constructor(private http: Http) {
     this.currentState = {current : _STATE_INIT, data : null };
+  }
+  setProjectName(projectName: string) {
+    this.currentState.data.project_name = projectName;
   }
   emitChangeEvent() {
     this.stateChange.emit('stateChange');

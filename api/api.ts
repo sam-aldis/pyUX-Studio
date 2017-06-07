@@ -1,3 +1,4 @@
+import { ExceptionInfo } from '_debugger';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import { CreateNewProject, LoadProject } from './api.functions';
@@ -23,8 +24,12 @@ export const APIS = [
         'path' : '/api/open',
         'data' : (req) => {
             if (req.project_name !== undefined) {
-                const rdata = new LoadProject(req.project_name).content();
-                return rdata.toString();
+                try {
+                    const rdata = new LoadProject(req.project_name).content();
+                    return rdata.toString();
+                } catch (e) {
+                    return error;
+                 }
             } else {
                 return error;
             }
