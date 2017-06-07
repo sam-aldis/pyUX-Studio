@@ -1,0 +1,25 @@
+{
+  "name": "pyUX",
+  "version": "1.0.0",
+  "description": "Python UX Creator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/sam-aldis/pyUX",
+  "keywords": [
+    "python",
+    "UI",
+    "UX"
+  ],
+  "author": "Sam Aldis",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.98.2"
+  },
+  "dependencies": {
+    "material-design-icons": "^3.0.1"
+  }
+}

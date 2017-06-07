@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>pyUX</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script>
+      material_icons = require('material-design-icons');
+    </script>
+    <style>
+    body{
+        background-color: #2f2f2f;
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .sidebar {
+        padding: 10px;
+        display: inline-block;
+        background-color: #4f4f4f;
+        height: 900px;
+        width: 50px;
+        border-right: 1px solid rgba(255,255,255,0.5);
+        color: antiquewhite;
+    }
+    .button {
+      cursor: pointer;
+      user-select: none;
+    }
+    .main-area {
+      width: auto;
+      display: inline-block;
+      overflow: scroll;
+    }
+    .instructions {
+      color: rgba(255,255,255,0.5);
+    }
+    input[type=text] {
+      outline: none;
+      background: none;
+      border: none;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      transition: 0.3s;
+    }
+    input[type=text]:focus {
+      outline: none;
+      border-bottom: 1px solid rgba(255,255,255,0.9);
+    }
+    .settings-area {
+      padding: 5px;
+      position: absolute;
+      display: inline-block;
+      right: 0px;
+      width: 150px;
+      height: 900px;
+      background-color: #4f4f4f;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <i class="material-icons button">add</i>
+    </div> 
+    <div class="main-area" id="contentArea">
+      <div class="instructions">Click the plus on the left hand
+        <br />side or drag a file here to start editing</div>
+    </div>
+    <div class="settings-area" id="settingsArea">
+      <input type="text" />
+    </div>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>
