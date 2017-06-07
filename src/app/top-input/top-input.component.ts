@@ -1,4 +1,4 @@
-import { _STATE_INIT, _STATE_NEW } from './../state.service';
+import { _STATE_INIT, _STATE_NEW, _STATE_LOAD } from './../state.service';
 import { StateService } from '../state.service';
 import { Component, OnInit, Input} from '@angular/core';
 const _enter = 13;
@@ -21,10 +21,15 @@ export class TopInputComponent implements OnInit {
         event.target.value = '';
         this.state.topBox = false;
         this.state.state = {
-          current : _STATE_NEW,
+          current : this.state.state.current,
           data : data
         };
-        this.state.createNewProject();
+        if (this.state.state.current === _STATE_NEW) {
+          this.state.createNewProject();
+        }
+        if (this.state.state.current === _STATE_LOAD) {
+          this.state.loadProject();
+        }
     }
     if (event.keyCode === _exit) {
       this.state.topBox = false;

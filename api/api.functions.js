@@ -8,9 +8,11 @@ var CreateNewProject = (function () {
     }
     CreateNewProject.prototype.create = function () {
         var fpath = path.join(__dirname, this.filename + '.xml');
-        fs.writeFile(fpath, '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
+        var fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
             + this.filename
-            + '">\n\n</App>');
+            + '">\n\n</App>';
+        fs.writeFile(fpath, fdata);
+        return fdata;
     };
     return CreateNewProject;
 }());
@@ -21,10 +23,12 @@ var SaveToProject = (function () {
     }
     SaveToProject.prototype.writeAll = function (data) {
         var fpath = path.join(__dirname, this.filename + '.xml');
-        fs.writeFile(fpath, '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
+        var fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
             + this.filename
-            + '">\n\n</App>');
+            + '">\n\n</App>';
+        fs.writeFile(fpath, fdata);
         fs.appendFile(fpath, data);
+        return fdata;
     };
     SaveToProject.prototype.appendData = function (data) {
         var fpath = path.join(__dirname, this.filename + '.xml');
@@ -39,7 +43,7 @@ var LoadProject = (function () {
     }
     LoadProject.prototype.content = function () {
         var fpath = path.join(__dirname, this.filename + '.xml');
-        return fs.readFileSync(fpath);
+        return fs.readFileSync(fpath).toString();
     };
     return LoadProject;
 }());

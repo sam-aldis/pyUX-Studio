@@ -13,8 +13,8 @@ export const APIS = [
         'path' : '/api/new',
         'data' : (req) => {
             if (req.project_name !== undefined) {
-                new CreateNewProject(req.project_name).create();
-                return 'created project';
+                const ret = new CreateNewProject(req.project_name).create();
+                return ret;
             } else {
                 return error;
             }
@@ -26,7 +26,7 @@ export const APIS = [
             if (req.project_name !== undefined) {
                 try {
                     const rdata = new LoadProject(req.project_name).content();
-                    return rdata.toString();
+                    return rdata;
                 } catch (e) {
                     return error;
                  }
@@ -58,8 +58,8 @@ any help you can provide would be AWESOME :)\n\
             console.log('**API PATH LOADED ', api.path);
             this.app.get(api.path, (req, res) => {
                 if (req.query.key !== undefined && req.query.key === apiKey) {
-                    const data = api.data(req.query);
                     res.header('Access-Control-Allow-Origin', accessOrigin);
+                    const data = api.data(req.query);
                     res.write(data);
                     res.end();
                 } else {

@@ -54,7 +54,11 @@ export class StateService {
     this.topBoxTxt = txt;
   }
   public createNewProject() {
-    let api: ApiService = new ApiService(this, this.http);
+    const api: ApiService = new ApiService(this, this.http);
     api.addProject(this.state.data.project_name);
+  }
+  public loadProject() {
+    const api: ApiService = new ApiService(this, this.http);
+    api.loadProject(this.state.data.project_name);
   }
 }

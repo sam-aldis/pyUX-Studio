@@ -4,21 +4,25 @@ import * as path from 'path';
 
 export class CreateNewProject {
     constructor(public filename) {}
-    create() {
+    create(): string {
         const fpath = path.join(__dirname, this.filename + '.xml');
-        fs.writeFile(fpath, '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
-                            + this.filename
-                            + '">\n\n</App>');
+        const fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
+                    + this.filename
+                    + '">\n\n</App>';
+        fs.writeFile(fpath, fdata);
+        return fdata;
     }
 }
-export class SaveToProject {
+export class SaveToProject  {
     constructor(public filename) {}
-    writeAll(data: XMLDocument | string) {
+    writeAll(data: XMLDocument | string): string {
         const fpath = path.join(__dirname, this.filename + '.xml');
-        fs.writeFile(fpath, '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
-                            + this.filename
-                            + '">\n\n</App>');
+        const fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
+                    + this.filename
+                    + '">\n\n</App>';
+        fs.writeFile(fpath, fdata);
         fs.appendFile(fpath, data);
+        return fdata;
     }
     appendData(data: XMLDocument | string) {
         const fpath = path.join(__dirname, this.filename + '.xml');
@@ -27,10 +31,10 @@ export class SaveToProject {
 }
 
 export class LoadProject {
-    private rdata: Buffer;
+    private rdata: string;
     constructor(public filename) {}
-    content(): Buffer {
+    content(): string {
         const fpath = path.join(__dirname, this.filename + '.xml');
-        return fs.readFileSync(fpath);
+        return fs.readFileSync(fpath).toString();
     }
 }

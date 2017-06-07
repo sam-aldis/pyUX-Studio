@@ -1,6 +1,6 @@
 import { CreatorComponent } from './../creator/creator.component';
 import { StateService, State, _STATE_ERROR, _STATE_INIT, _STATE_LOAD, _STATE_NEW, _STATE_CREATOR } from './../state.service';
-import { Component, OnInit, Input, Injectable, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { PyUXLoadingComponent } from '../py-ux-loading/py-ux-loading.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { PyUXLoadingComponent } from '../py-ux-loading/py-ux-loading.component';
   templateUrl: './main-body.component.html',
   styleUrls: ['./main-body.component.css']
 })
+
 export class MainBodyComponent implements OnInit {
   state: State;
   current: number;

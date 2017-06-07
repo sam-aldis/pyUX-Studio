@@ -12,14 +12,27 @@ export class ApiService {
         .then( () => this.state.setProjectName(projectName))
         .catch( () => console.log('error caught'));
   }
+  public loadProject(projectName: string) {
+    this.apiQuery('open?project_name=' + projectName)
+        .then(() => this.state.setProjectName(projectName))
+        .catch(() => console.log('error caught'));
+  }
+  // I've split the the call to the api into a seperate function
+  // You can now use apiQuery within the apiService to interact with
+  // The backend server. Returns a Promise so that you can use .then if needed
+  // (i.e setProjectName after the state has been set)
+  // It is set as private to keep it from being used in components etc which
+  // Would lead to calls being made all over the place
+  // Create public function in this service and call them instead
   private apiQuery(query: string): Promise<any> {
     return new Promise((resolve, reject) => {
       this.http.get('http://localhost:9393/api/'
       + query
       + '&key='
       + apiKey).subscribe(
-        (res: Response) => {
-          if (res.toString() === error) {
+        (res: any) => {
+          console.log(res);
+          if (res._body === error) {
             const stateError: State = {
               current : _STATE_ERROR
             };
@@ -47,4 +60,5 @@ export class ApiService {
             reject();
         });
     });
+  }
 }

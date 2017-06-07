@@ -1,0 +1,25 @@
+.left-panel {
+    display: flex;
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+.right-panel {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    float: right;
+}
+.code-area {
+    padding-top: 10px;
+    color: ghostwhite;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    border: none;
+    height: 884px;
+    resize: vertical;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

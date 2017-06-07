@@ -11,8 +11,8 @@ exports.APIS = [
         'path': '/api/new',
         'data': function (req) {
             if (req.project_name !== undefined) {
-                new api_functions_1.CreateNewProject(req.project_name).create();
-                return 'created project';
+                var ret = new api_functions_1.CreateNewProject(req.project_name).create();
+                return ret;
             }
             else {
                 return error;
@@ -23,8 +23,13 @@ exports.APIS = [
         'path': '/api/open',
         'data': function (req) {
             if (req.project_name !== undefined) {
-                var rdata = new api_functions_1.LoadProject(req.project_name).content();
-                return rdata.toString();
+                try {
+                    var rdata = new api_functions_1.LoadProject(req.project_name).content();
+                    return rdata;
+                }
+                catch (e) {
+                    return error;
+                }
             }
             else {
                 return error;
@@ -53,8 +58,8 @@ any help you can provide would be AWESOME :)\n\
             console.log('**API PATH LOADED ', api.path);
             _this.app.get(api.path, function (req, res) {
                 if (req.query.key !== undefined && req.query.key === apiKey) {
-                    var data = api.data(req.query);
                     res.header('Access-Control-Allow-Origin', accessOrigin);
+                    var data = api.data(req.query);
                     res.write(data);
                     res.end();
                 }
