@@ -1,5 +1,7 @@
 <div class="left-panel">
-<textarea class="code-area">{{(code !== undefined)? code : ""}}</textarea>
+    <form #codeareaForm="ngForm">
+        <textarea class="code-area" [(ngModel)]="currentState.state.data.project_data.uxml" name="codearea"></textarea>
+    </form>
 </div>
 <div class="right-panel">
 testing

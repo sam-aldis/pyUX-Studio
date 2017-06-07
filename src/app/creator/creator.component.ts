@@ -15,7 +15,6 @@ export class CreatorComponent implements OnInit {
   code: string;
   constructor(private currentState: StateService) {
     currentState.state.data.project_data.uxml = currentState.state.data.project_data.api_body._body;
-    this.code = currentState.state.data.project_data.uxml;
   }
 
   ngOnInit() {

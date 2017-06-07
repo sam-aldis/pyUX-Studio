@@ -11,3 +11,27 @@ nav.holder {
     -ms-user-select: none;
     list-style: none;
 }
+.new:hover::after {
+    font-size: 10pt;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px;
+    content: 'NEW'
+}
+.open:hover::after {
+    font-size: 10pt;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px;
+    content: 'OPEN'
+}
+.save:hover::after {
+    font-size: 10pt;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px;
+    content: 'SAVE'
+}
+.settings:hover::after {
+    font-size: 10pt;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5px;
+    content: 'SETTINGS'
+}

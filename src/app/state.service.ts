@@ -28,6 +28,11 @@ export class StateService {
   constructor(private http: Http) {
     this.currentState = {current : _STATE_INIT, data : null };
   }
+  showMessage(message: string) {
+    // Using alert for convinece for now will change later
+    // TODO: Change to toast
+    alert(message);
+  }
   setProjectName(projectName: string) {
     this.currentState.data.project_name = projectName;
   }
@@ -52,6 +57,10 @@ export class StateService {
   }
   set topBoxText(txt: string) {
     this.topBoxTxt = txt;
+  }
+  public saveProject() {
+    const api: ApiService = new ApiService(this, this.http);
+    api.saveProject();
   }
   public createNewProject() {
     const api: ApiService = new ApiService(this, this.http);

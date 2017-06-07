@@ -21,18 +21,16 @@ var SaveToProject = (function () {
     function SaveToProject(filename) {
         this.filename = filename;
     }
-    SaveToProject.prototype.writeAll = function (data) {
+    SaveToProject.prototype.writeAll = function (writedata) {
         var fpath = path.join(__dirname, this.filename + '.xml');
-        var fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
-            + this.filename
-            + '">\n\n</App>';
-        fs.writeFile(fpath, fdata);
-        fs.appendFile(fpath, data);
-        return fdata;
+        return new Promise(function (resolve, reject) {
+            fs.writeFile(fpath, writedata, function (err) { return reject(err); });
+            resolve('saved');
+        });
     };
-    SaveToProject.prototype.appendData = function (data) {
+    SaveToProject.prototype.appendData = function (writedata) {
         var fpath = path.join(__dirname, this.filename + '.xml');
-        fs.appendFile(fpath, data);
+        fs.appendFile(fpath, writedata);
     };
     return SaveToProject;
 }());

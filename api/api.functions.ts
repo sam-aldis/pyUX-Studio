@@ -15,18 +15,16 @@ export class CreateNewProject {
 }
 export class SaveToProject  {
     constructor(public filename) {}
-    writeAll(data: XMLDocument | string): string {
-        const fpath = path.join(__dirname, this.filename + '.xml');
-        const fdata = '<?xml version="1.0" encoding="UTF-8" ?>\n<App type="pyUX" version="1.0" project="'
-                    + this.filename
-                    + '">\n\n</App>';
-        fs.writeFile(fpath, fdata);
-        fs.appendFile(fpath, data);
-        return fdata;
+    writeAll(writedata: string): Promise<any> {
+        const fpath: string = path.join(__dirname, this.filename + '.xml');
+        return new Promise((resolve, reject) => {
+            fs.writeFile(fpath, writedata, (err) => reject(err));
+            resolve('saved');
+        });
     }
-    appendData(data: XMLDocument | string) {
+    appendData(writedata: string) {
         const fpath = path.join(__dirname, this.filename + '.xml');
-        fs.appendFile(fpath, data);
+        fs.appendFile(fpath, writedata);
     }
 }
 

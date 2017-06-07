@@ -1,3 +1,4 @@
+import { ApiService } from './../api.service';
 import { State, StateService, _STATE_NEW, _STATE_LOAD } from './../state.service';
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 @Component({
@@ -27,6 +28,9 @@ export class SideMenuComponent implements OnInit {
     this.currentState.topBox = true;
     // TODO: This will eventually need to be replaced with a proper open dialogue
     this.currentState.topBoxText = 'Please enter the project name to open';
+  }
+  saveProject() {
+    this.currentState.saveProject();
   }
   openSettings() {
     // TODO: For updating local settings
